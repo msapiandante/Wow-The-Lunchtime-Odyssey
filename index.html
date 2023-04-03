@@ -1,0 +1,27 @@
+
+/* This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/ 
+<section id = "game-done-container">
+    <h1>Game Over!</h1>
+
+    <h2 id = "final-score"></h2>
+    <form>
+        <div id = "player-initials">
+            <label>Player Initials</label>
+            <input type="text" name="initials" id="initials" placeholder=""/>
+        </div>
+        <button id = "submit">Submit</button>
+    </form>
+    <div id = "score-board">
+        <h1>Scoreboard</h1>
+        <ul id = "scores-list"></ul>
+        <div>
+            <button id = "replay">Play Again</button>
+        </div>
+    </div>
+</section>
+<script src="assets/script.js"></script>
+</body>
+
+</html>
+
+
