@@ -105,18 +105,40 @@ var choiceTwo = document.getElementById("choice-two")
 var choiceThree = document.getElementById("choice-three")
 var choiceFour = document.getElementById("choice-four")
 
+//https://www.geeksforgeeks.org/how-to-shuffle-an-array-using-javascript/
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) { 
+   
+        // Generate random number 
+        var j = Math.floor(Math.random() * (i + 1));
+                   
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+       
+    return array;
+ }
+
 //Function to display game questions and game board 
 function displayGameContainer(data) {
     //game page should get shown here?
 
     answerArr = []
-    answerArr.push(data[index].incorrectAnswers)
+    answerArr = answerArr.concat(data[index].incorrectAnswers)
     answerArr.push(data[index].correctAnswer)
+
     console.log(answerArr)
+
+    var randomChoices = shuffleArray(answerArr)
+    console.log(randomChoices)
 
     for (var i=0; i < data.length; i ++) {
         triviaQuestion.textContent = data[index].question 
-        choiceOne.textContent = Math.floor(Math.random() * answerArr.length)
+        choiceOne.textContent = randomChoices[0]
+        choiceTwo.textContent = randomChoices[1]
+        choiceThree.textContent = randomChoices[2]
+        choiceFour.textContent = randomChoices[3]
     }
 
 
