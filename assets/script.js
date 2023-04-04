@@ -72,11 +72,13 @@
 
 
 
-var placeholderCategory //need to get this variable from melanie's code from start page
+var placeholderCategory = history //need to get this variable from melanie's code from start page
 getGameQuestions(placeholderCategory) //function needs to be called when play button is clicked 
 
-//Function gets 
+//Function called to get game questions from trivia API
 function getGameQuestions(category) {
+    //start page should get set to display none here?
+
     var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=10"
 
     fetch(queryURL)
@@ -96,13 +98,30 @@ function getGameQuestions(category) {
 
 }
 
+var index = 0
+var triviaQuestion = document.getElementById("question")
+var choiceOne = document.getElementById("choice-one")
+var choiceTwo = document.getElementById("choice-two")
+var choiceThree = document.getElementById("choice-three")
+var choiceFour = document.getElementById("choice-four")
 
 //Function to display game questions and game board 
-function displayGameContainer() {
+function displayGameContainer(data) {
+    //game page should get shown here?
+
+    answerArr = []
+    answerArr.push(data[index].incorrectAnswers)
+    answerArr.push(data[index].correctAnswer)
+    console.log(answerArr)
+
+    for (var i=0; i < data.length; i ++) {
+        triviaQuestion.textContent = data[index].question 
+        choiceOne.textContent = Math.floor(Math.random() * answerArr.length)
+    }
+
 
 
 
 
 
 }
-
