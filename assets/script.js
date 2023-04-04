@@ -128,8 +128,6 @@ function displayGameContainer(data) {
     answerArr = answerArr.concat(data[index].incorrectAnswers)
     answerArr.push(data[index].correctAnswer)
 
-    console.log(answerArr)
-
     var randomChoices = shuffleArray(answerArr)
     console.log(randomChoices)
 
@@ -141,9 +139,33 @@ function displayGameContainer(data) {
         choiceFour.textContent = randomChoices[3]
     }
 
+    //TODO: put owen and road on the page here
 
-
-
-
+    choiceOne.addEventListener("click", moveOwen(event))
+    choiceTwo.addEventListener("click", moveOwen(data))
+    choiceThree.addEventListener("click", moveOwen(data))
+    choiceFour.addEventListener("click", moveOwen(data))
 
 }
+
+function moveOwen(event, data) {
+    var buttonClicked = event.target
+
+    if (buttonClicked.textContent === data[index].correctAnswer) {
+        console.log("correct")
+        //move owen one space forward 
+    } else {
+        //move owen one space back
+    }
+
+    //play wow audio on click
+
+    index++
+
+    if (index < data.length) {
+        displayGameContainer(index)
+    } else {
+        //call finished game function here 
+    }
+}
+
