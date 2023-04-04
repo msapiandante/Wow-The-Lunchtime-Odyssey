@@ -1,5 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>WOW The Lunchtime Odyssey</title>
+  </head>
+  <body>
+    <div class="hero">
+        <h1 id="applicationTitle">WOW The Lunchtime Odyssey</h1>
+        <p>Help Owen Wilson reach his favorite lunch by answering some of the most interesting questions on the internet!</p>
+    </section>
 
-/* This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/ 
+    <div id="game-page-container">
+        <div id="game-board">
+            <!-- owen head will move, so separate div container -->
+            <div id="road">
+                <div id="owen-head"></div>
+            </div>
+            <!-- background and cheeseburger don't move  -->
+            <div id="road-background">
+                <div id="cheeseburger"></div>
+            </div>
+        </div>
+
+        <div id="trivia-board">
+            <div id="carousel">
+                <!-- trivia questions -->
+                <h1 id="question"></h1>
+                <!-- trivia answer choices  -->
+                <button class="button" id="choice-one"></button>
+                <button class="button" id="answer-two"></button>
+                <button class="button" id="answer-three"></button>
+                <button class="button" id="answer-four"></button>
+            </div>
+        </div>
+    </div>
+    
+    /* This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/ 
 <section id = "game-done-container">
     <h1>Game Over!</h1>
 
@@ -21,7 +59,7 @@
 </section>
 <script src="assets/script.js"></script>
 </body>
-
+    
+</body>
 </html>
-
 
