@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html>
   <head>
     <meta charset="utf-8">
@@ -12,38 +11,6 @@
         <h1 id="applicationTitle">WOW The Lunchtime Odyssey</h1>
         <p>Help Owen Wilson reach his favorite lunch by answering some of the most interesting questions on the internet!</p>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </body>
-=======
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wow!</title>
-</head>
-<body>
 
     <div id="game-page-container">
         <div id="game-board">
@@ -70,6 +37,29 @@
         </div>
     </div>
     
+    /* This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/ 
+<section id = "game-done-container">
+    <h1>Game Over!</h1>
+
+    <h2 id = "final-score"></h2>
+    <form>
+        <div id = "player-initials">
+            <label>Player Initials</label>
+            <input type="text" name="initials" id="initials" placeholder=""/>
+        </div>
+        <button id = "submit">Submit</button>
+    </form>
+    <div id = "score-board">
+        <h1>Scoreboard</h1>
+        <ul id = "scores-list"></ul>
+        <div>
+            <button id = "replay">Play Again</button>
+        </div>
+    </div>
+</section>
+<script src="assets/script.js"></script>
+</body>
+    
 </body>
 </html>
->>>>>>> 2a2e2b3b9f1819a17c09637a6c582b4ef8755f9b
+
