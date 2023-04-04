@@ -1,0 +1,100 @@
+.hero{
+    background-color: #363636;
+}
+#application-title{
+    color: hsl(44, 100%, 77%);
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Press Start 2P', cursive;
+}
+#mission{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Press Start 2P', cursive;
+}
+p{
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    
+}
+
+i{
+    font-size:25px
+}
+
+.box-footer{
+    text-align: center;
+
+}
+
+#get-sandwich-btn{
+    background-color:#363636;
+    color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+#answer-one{
+    
+    text-align: center;
+    background-color:#363636;
+    color:#ffe08a;
+}
+#answer-two{
+    text-align: center;
+    background-color:#363636;
+    color:#ffe08a;
+}
+#answer-three{
+    text-align: center;
+    background-color:#363636;
+    color:#ffe08a;
+}
+#answer-four{
+    text-align: center;
+    background-color:#363636;
+    color:#ffe08a;
+}
+#carousel{
+    text-align: center;
+}
+.go-memo{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Press Start 2P', cursive;
+    color: darkred;
+}
+form{
+    text-align: center;
+}
+#player-initials{
+    text-align: center;
+    font-size:20px
+}
+
+#submit{
+    text-align: center;
+    background-color:#363636;
+    color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#score-board{
+    text-align: center;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Press Start 2P', cursive;
+    color:#363636; 
+}
+
+#replay{
+    text-align: center;
+    background-color:#363636;
+    color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
+
+}
