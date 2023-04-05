@@ -28,37 +28,59 @@ i{
     text-align: center;
 
 }
+form{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    
+}
 
-#get-sandwich-btn{
+#play-btn{
+    text-align: center;
     background-color:#363636;
     color:#ffe08a;
     font-family: 'Press Start 2P', cursive;
 }
 
+.container{
+    text-align: center;
+}
+#question{
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 25px
+}
+#choice-one{
+    text-align: center;
+    margin-bottom: 20px; 
+    background-color:#363636;
+    color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
+}
+#choice-two{
+    text-align: center;
+    margin-bottom: 20px;
+    background-color:#363636;
+    color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
 
-#answer-one{
-    
-    text-align: center;
-    background-color:#363636;
-    color:#ffe08a;
 }
-#answer-two{
+#choice-three{
     text-align: center;
+    margin-bottom: 20px;
     background-color:#363636;
     color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
 }
-#answer-three{
+#choice-four{
     text-align: center;
+    margin-bottom:20px;
     background-color:#363636;
     color:#ffe08a;
-}
-#answer-four{
-    text-align: center;
-    background-color:#363636;
-    color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
 }
 #carousel{
     text-align: center;
+    font-size: 20px;
 }
 .go-memo{
     text-align: center;
@@ -67,9 +89,7 @@ i{
     font-family: 'Press Start 2P', cursive;
     color: darkred;
 }
-form{
-    text-align: center;
-}
+
 #player-initials{
     text-align: center;
     font-size:20px
