@@ -3,25 +3,49 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/4e9c0933eb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>WOW The Lunchtime Odyssey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>WOW! The Lunchtime Odyssey</title>
   </head>
   <body>
     <div class="hero">
-        <h1 id="applicationTitle">WOW The Lunchtime Odyssey</h1>
+        <div class="content">
+        <h1 id="application-title">WOW! Owen Wilson's Lunchtime Odyssey</h1>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <h3>Your mission should you choose to accept it...</h3>
+    </div>
+    <div class="box">
+        <div class="box-header">
+            <h3 id="mission">Your mission should you choose to accept it...</h3>    
         </div>
-        <div class="card-body">
-        <p class="text-center">Help Owen Wilson reach his favorite sandwich by answering some of the most interesting questions on the internet!</p>
+        <div class="box-body">
+        <p>Help Owen Wilson reach his favorite <i class="fa-solid fa-burger fa-beat" style="color: #f2ad5f;"></i>  by answering some of the most interesting questions on the <i class="fa-solid fa-globe" style="color: #20c5ee;"></i></p>
+        <p>Correct answers move Owen  <i class="fa-solid fa-arrow-up-long fa-beat" style="color: #1d951f;"></i> wrong answers move him <i class="fa-solid fa-arrow-down-long fa-beat" style="color: #e31c1c;"></i> try to get him there in 5 answers!</p>
         </div>
-        <div class="card-footer">
-            <button id="getSandwich" class="btn">Get Him That Sandwich!</button>
+        <div class="box-footer pt-3">
+                  <div class="dropdown">
+                    <form>
+                    <div id="dropdown" class="dropdown-content">
+                        <label for="categories">Choose a Category:</label>
+                        <select id="categories" name="categories">
+                          <option value="Arts and Literature">Arts and Literature</option>
+                          <option value="Film & TV">Film & TV</option>
+                          <option value="Food & Drink">Food & Drink</option>
+                          <option value="General Knowledge">General Knowledge</option>
+                          <option value="Geography">Geography</option>
+                          <option value="History">History</option>
+                          <option value="Music">Music</option>
+                          <option value="Science">Science</option>
+                          <option value="Society & Culture">Society & Culture</option>
+                          <option value="Sport & Leisure">Sport & Leisure</option>
+                        </select>
+                       <button class="button is-rounded is-size-6" id="play-btn">Get Him That Sandwich!</button>
+                    </form>
+                    </div>
+                  </div>
         </div>
     </div>
-
 
     <div id="game-page-container">
         <div id="game-board">
@@ -35,36 +59,38 @@
             </div>
         </div>
 
-        <div id="trivia-board">
-            <div id="carousel">
+        <div id="trivia-board" class="card">
+            <div id="carousel" class="card">
                 <!-- trivia questions -->
                 <h1 id="question"></h1>
                 <!-- trivia answer choices  -->
-                <button class="button" id="choice-one"></button>
-                <button class="button" id="choice-two"></button>
-                <button class="button" id="choice-three"></button>
-                <button class="button" id="choice-four"></button>
+                <button class="button is-rounded is-size-5" id=choice-one">.....</button>
+                <button class="button is-rounded is-size-5" id="choice-two">.....</button>
+                <button class="button is-rounded is-size-5" id="choice-three">.....</button>
+                <button class="button is-rounded is-size-5" id="choice-four">.....</button>
             </div>
         </div>
     </div>
     
-    /* This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/ 
-<section id = "game-done-container">
-    <h1>Game Over!</h1>
-
-    <h2 id = "final-score"></h2>
+    <!-- This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/  -->
+<section id = "game-done-container" class="box">
+    <h1 class="go-memo">Game Over!</h1>
+    <h2 id= "final-score"></h2>
+    <br>
     <form>
         <div id = "player-initials">
             <label>Player Initials</label>
             <input type="text" name="initials" id="initials" placeholder=""/>
         </div>
-        <button id = "submit">Submit</button>
+        <br>
+        <button class="button is-rounded"  id="submit">Submit! </button>
     </form>
     <div id = "score-board">
-        <h1>Scoreboard</h1>
+        <h1>Scoreboard: </h1>
         <ul id = "scores-list"></ul>
+        <br>
         <div>
-            <button id = "replay">Play Again</button>
+            <button class="button is-rounded" id="replay">Play Again? </button>
         </div>
     </div>
 </section>
