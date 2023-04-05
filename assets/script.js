@@ -141,31 +141,51 @@ function displayGameContainer(data) {
 
     //TODO: put owen and road on the page here
 
-    choiceOne.addEventListener("click", moveOwen(event))
-    choiceTwo.addEventListener("click", moveOwen(data))
-    choiceThree.addEventListener("click", moveOwen(data))
-    choiceFour.addEventListener("click", moveOwen(data))
+    choiceOne.addEventListener("click", function(event) {
+        console.log(data)
+        moveOwen.call(this, event, data)
+    }, false)
+
+    choiceTwo.addEventListener("click", function(event) {
+        console.log(data)
+        moveOwen.call(this, event, data)
+    }, false)
+
+    choiceThree.addEventListener("click", function(event) {
+        console.log(data)
+        moveOwen.call(this, event, data)
+    }, false)
+
+    choiceFour.addEventListener("click", function(event) {
+        console.log(data)
+        moveOwen.call(this, event, data)
+    }, false)
 
 }
+
+// function moveOwen(event) {
+//     var buttonClicked = event.target
+
+//     if (buttonClicked.textContent === data[index].correctAnswer) {
+//         console.log("correct")
+//         //move owen one space forward 
+//     } else {
+//         //move owen one space back
+//     }
+
+//     //play wow audio on click
+
+//     index++
+
+//     if (index < data.length) {
+//         displayGameContainer(index)
+//     } else {
+//         //call finished game function here 
+//     }
+// }
+
 
 function moveOwen(event, data) {
-    var buttonClicked = event.target
-
-    if (buttonClicked.textContent === data[index].correctAnswer) {
-        console.log("correct")
-        //move owen one space forward 
-    } else {
-        //move owen one space back
-    }
-
-    //play wow audio on click
-
-    index++
-
-    if (index < data.length) {
-        displayGameContainer(index)
-    } else {
-        //call finished game function here 
-    }
+    console.log(event)
+    console.log(data)
 }
-
