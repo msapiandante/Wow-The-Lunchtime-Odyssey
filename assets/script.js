@@ -126,6 +126,7 @@ var finalScore = document.getElementById("final-score")
 var submitButton = document.getElementById("submit")
 var initialInput = document.getElementById("initials")
 var scoreList = document.getElementById("scores-list")
+var playAgain = document.getElementById("replay")
 
 //Function to show final score 
 function gameOver() {
@@ -163,3 +164,8 @@ function scoreBoard(event) {
 
     localStorage.setItem("gamerScore", JSON.stringify(storedScores))
 }
+
+//Listens for clicks on play again button 
+playAgain.addEventListener("click", function() {
+    location.reload()
+})
