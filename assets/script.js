@@ -1,6 +1,3 @@
-//api document said that variable should be empty, i.e. 'var city;' however since we have a dropdown that users will be choosing from- should it be passed through as an object such as below? */
-
-//api call. with the api URL, I chose limit 10 questions since we discussed having 10 question limit. Was this the right move? I wasn't sure if the limit would need to be entered another way. 
 var categoryForm = document.getElementById("user-category")
 
 var dropdown = document.getElementById("categories")
@@ -13,26 +10,26 @@ categoryForm.addEventListener("submit", function (event) {
 
 //Function called to get game questions from trivia API
 function getGameQuestions(category) {
-  //start page should get set to display none here?
-
-  var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=10"
-
-  fetch(queryURL)
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          displayGameContainer(data, index)
-          console.log(data)
-        })
-      } else {
-        console.log("Error " + response.statusText)
-      }
-    })
-    .catch(function (error) {
-      console.log("Unable to connect to Trivia API")
-    })
-
-}
+    //start page should get set to display none here?
+  
+    var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=10"
+  
+    fetch(queryURL)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (data) {
+            displayGameContainer(data, index)
+            console.log(data)
+          })
+        } else {
+          console.log("Error " + response.statusText)
+        }
+      })
+      .catch(function (error) {
+        console.log("Unable to connect to Trivia API")
+      })
+  
+  }
 
 var index = 0
 var triviaQuestion = document.getElementById("question")
@@ -58,7 +55,7 @@ function shuffleArray(array) {
 
 //Function to display game questions and game board 
 function displayGameContainer(data, index) {
-  //game page should get shown here?
+    //game page should get shown here?
 
   answerArr = []
   answerArr = answerArr.concat(data[index].incorrectAnswers)
@@ -99,13 +96,14 @@ function displayGameContainer(data, index) {
 
 }
 
-function moveOwen(event) {
+function moveOwen(event, data) {
     var buttonClicked = event.target
 
     if (buttonClicked.textContent === data[index].correctAnswer) {
         console.log("correct")
         //move owen one space forward 
     } else {
+        console.log("incorrect")
         //move owen one space back
     }
 
@@ -114,8 +112,11 @@ function moveOwen(event) {
     index++
 
     if (index < data.length) {
-        displayGameContainer(data,index)
+        displayGameContainer(data, index)
     } else {
         //call finished game function here 
+        console.log("end game")
     }
+    console.log(event)
+    console.log(data)
 }
