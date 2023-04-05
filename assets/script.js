@@ -12,7 +12,7 @@ let categories = {
   sport_and_leisure : "Sport & Leisure"};
   //api call. with the api URL, I chose limit 10 questions since we discussed having 10 question limit. Was this the right move? I wasn't sure if the limit would need to be entered another way. 
 
-var queryURL = "https://the-trivia-api.com/api/questions?limit=10?q=" + categories;
+// var queryURL = "https://the-trivia-api.com/api/questions?limit=10?q=" + categories;
 
 
 /*var getQuestions = function (categories) {
@@ -56,7 +56,7 @@ function getGameQuestions(category) {
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
-                    displayGameContainer(data)
+                    displayGameContainer(data, index)
                     console.log(data)
                 })
             } else {
@@ -92,7 +92,7 @@ function shuffleArray(array) {
  }
 
 //Function to display game questions and game board 
-function displayGameContainer(data) {
+function displayGameContainer(data, index) {
     //game page should get shown here?
 
     answerArr = []
@@ -141,6 +141,7 @@ function moveOwen(event, data) {
         console.log("correct")
         //move owen one space forward 
     } else {
+        console.log("incorrect")
         //move owen one space back
     }
 
@@ -149,9 +150,10 @@ function moveOwen(event, data) {
     index++
 
     if (index < data.length) {
-        displayGameContainer(index)
+        displayGameContainer(data, index)
     } else {
         //call finished game function here 
+        console.log("end game")
     }
     console.log(event)
     console.log(data)
