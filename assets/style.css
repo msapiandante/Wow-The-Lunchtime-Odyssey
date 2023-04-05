@@ -29,36 +29,49 @@ i{
 
 }
 
-#get-sandwich-btn{
+#play-btn{
+    text-align: center;
     background-color:#363636;
     color:#ffe08a;
     font-family: 'Press Start 2P', cursive;
 }
 
-
-#choice-one{
-    
+.container{
     text-align: center;
+}
+#question{
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px
+}
+#choice-one{
+    text-align: center;  
     background-color:#363636;
     color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
 }
 #choice-two{
     text-align: center;
     background-color:#363636;
     color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
+
 }
 #choice-three{
     text-align: center;
     background-color:#363636;
     color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
 }
 #choice-four{
     text-align: center;
     background-color:#363636;
     color:#ffe08a;
+    font-family: 'Press Start 2P', cursive;
 }
 #carousel{
     text-align: center;
+
 }
 .go-memo{
     text-align: center;
@@ -69,6 +82,8 @@ i{
 }
 form{
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    
 }
 #player-initials{
     text-align: center;
