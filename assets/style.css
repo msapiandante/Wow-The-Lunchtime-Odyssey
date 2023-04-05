@@ -118,3 +118,12 @@ form{
     font-family: 'Press Start 2P', cursive;
 
 }
+
+#game-board {
+    background-image: url("./images/road.png");
+    height: 500px;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

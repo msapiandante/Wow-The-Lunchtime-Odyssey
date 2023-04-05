@@ -111,12 +111,55 @@ function moveOwen(event, data) {
 
     index++
 
-    if (index < data.length) {
+    if (index < data.length || owen hasnt reached burger){
         displayGameContainer(data, index)
     } else {
         //call finished game function here 
+        gameOver()
         console.log("end game")
     }
     console.log(event)
     console.log(data)
+}
+
+var finalScore = document.getElementById("final-score")
+var submitButton = document.getElementById("submit")
+var initialInput = document.getElementById("initials")
+var scoreList = document.getElementById("scores-list")
+
+//Function to show final score 
+function gameOver() {
+    //set game container to display none 
+    //set game done container to display to show
+
+    var score = index
+
+    finalScore.textContent = "Your final score is: " + score
+
+    submitButton.addEventListener("click", scoreBoard)
+
+}
+
+//Function to display past scores and set scores to local storage
+function scoreBoard(event) {
+    event.preventDefault()
+
+    var gamerScore = {
+        intials: initialInput.value.trim(),
+        score: index,
+    }
+
+    var storedScores = JSON.parse(localStorage.getItem("gamerScore")) || []
+
+    storedScores.push(gamerScore)
+
+    for (vari=0; i < storedScores.length; i++) {
+        var li = document.createElement("li")
+        li.textContent = "Intials: " + storedScores[i].initials + "Score: " + storedScores[i].score
+        li.setAttribute("style", "list-type: none")
+
+        scoreList.appendChild("li")
+    }
+
+    localStorage.setItem("gamerScore", JSON.stringify(storedScores))
 }
