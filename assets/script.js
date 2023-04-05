@@ -21,7 +21,7 @@ function getGameQuestions(category) {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          displayGameContainer(data)
+          displayGameContainer(data, index)
           console.log(data)
         })
       } else {
@@ -57,7 +57,7 @@ function shuffleArray(array) {
 }
 
 //Function to display game questions and game board 
-function displayGameContainer(data) {
+function displayGameContainer(data, index) {
   //game page should get shown here?
 
   answerArr = []
@@ -99,30 +99,23 @@ function displayGameContainer(data) {
 
 }
 
-// function moveOwen(event) {
-//     var buttonClicked = event.target
+function moveOwen(event) {
+    var buttonClicked = event.target
 
-//     if (buttonClicked.textContent === data[index].correctAnswer) {
-//         console.log("correct")
-//         //move owen one space forward 
-//     } else {
-//         //move owen one space back
-//     }
+    if (buttonClicked.textContent === data[index].correctAnswer) {
+        console.log("correct")
+        //move owen one space forward 
+    } else {
+        //move owen one space back
+    }
 
-//     //play wow audio on click
+    //play wow audio on click
 
-//     index++
+    index++
 
-//     if (index < data.length) {
-//         displayGameContainer(index)
-//     } else {
-//         //call finished game function here 
-//     }
-// }
-
-
-function moveOwen(event, data) {
-  console.log(event)
-  console.log(data)
+    if (index < data.length) {
+        displayGameContainer(data,index)
+    } else {
+        //call finished game function here 
+    }
 }
-
