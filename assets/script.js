@@ -163,29 +163,24 @@ function displayGameContainer(data) {
 
 }
 
-// function moveOwen(event) {
-//     var buttonClicked = event.target
-
-//     if (buttonClicked.textContent === data[index].correctAnswer) {
-//         console.log("correct")
-//         //move owen one space forward 
-//     } else {
-//         //move owen one space back
-//     }
-
-//     //play wow audio on click
-
-//     index++
-
-//     if (index < data.length) {
-//         displayGameContainer(index)
-//     } else {
-//         //call finished game function here 
-//     }
-// }
-
-
 function moveOwen(event, data) {
-    console.log(event)
-    console.log(data)
+    var buttonClicked = event.target
+
+    if (buttonClicked.textContent === data[index].correctAnswer) {
+        console.log("correct")
+        //move owen one space forward 
+    } else {
+        //move owen one space back
+    }
+
+    //play wow audio on click
+
+    index++
+
+    if (index < data.length) {
+        displayGameContainer(index)
+    } else {
+        //call finished game function here 
+    }
 }
+
