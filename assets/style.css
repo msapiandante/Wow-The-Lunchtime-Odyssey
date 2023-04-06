@@ -90,6 +90,33 @@ form{
     color: darkred;
 }
 
+.container{
+    background-image: url("./images/road.png");
+    background-size: contain;
+    justify-content:center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color:rgb(181, 204, 81);
+    height:600px;
+    width:600px;
+
+
+}
+#owen-heads{
+    position: absolute;
+    bottom: 0px;
+    margin: 0;
+    margin-left: -102px;
+}
+#cheese-burger{
+    position: absolute;
+    top:-20px;
+    margin-left:-90px;
+
+    
+
+}
+
 #player-initials{
     text-align: center;
     font-size:20px
