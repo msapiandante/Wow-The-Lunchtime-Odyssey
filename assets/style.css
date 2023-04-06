@@ -113,7 +113,10 @@ form{
     margin-left:-90px;
 
 }
-
+#final-score{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
 #player-initials{
     text-align: center;
     font-size:20px
