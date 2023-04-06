@@ -1,35 +1,36 @@
 var categoryForm = document.getElementById("user-category")
 
 var dropdown = document.getElementById("categories")
+var audioEl = document.getElementById("audio")
 
 categoryForm.addEventListener("submit", function (event) {
   event.preventDefault()
-  var selectedCategory= dropdown.value
+  var selectedCategory = dropdown.value
   getGameQuestions(selectedCategory)
 })
 
 //Function called to get game questions from trivia API
 function getGameQuestions(category) {
-    //start page should get set to display none here?
-  
-    var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=10"
-  
-    fetch(queryURL)
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (data) {
-            displayGameContainer(data, index)
-            console.log(data)
-          })
-        } else {
-          console.log("Error " + response.statusText)
-        }
-      })
-      .catch(function (error) {
-        console.log("Unable to connect to Trivia API")
-      })
-  
-  }
+  //start page should get set to display none here?
+
+  var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=10"
+
+  fetch(queryURL)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          displayGameContainer(data, index)
+          console.log(data)
+        })
+      } else {
+        console.log("Error " + response.statusText)
+      }
+    })
+    .catch(function (error) {
+      console.log("Unable to connect to Trivia API")
+    })
+
+}
 
 var index = 0
 var triviaQuestion = document.getElementById("question")
@@ -55,7 +56,7 @@ function shuffleArray(array) {
 
 //Function to display game questions and game board 
 function displayGameContainer(data, index) {
-    //game page should get shown here?
+  //game page should get shown here?
 
   answerArr = []
   answerArr = answerArr.concat(data[index].incorrectAnswers)
@@ -95,28 +96,42 @@ function displayGameContainer(data, index) {
   }, false)
 
 }
+//play wow audio on click
+function playAudio(audio) {
+  console.log(audio)
+  audioEl.setAttribute("src", audio)
+  audioEl.play()
 
+
+}
 function moveOwen(event, data) {
-    var buttonClicked = event.target
-
-    if (buttonClicked.textContent === data[index].correctAnswer) {
-        console.log("correct")
-        //move owen one space forward 
-    } else {
-        console.log("incorrect")
-        //move owen one space back
-    }
-
-    //play wow audio on click
-
-    index++
-
-    if (index < data.length) {
-        displayGameContainer(data, index)
-    } else {
-        //call finished game function here 
-        console.log("end game")
-    }
-    console.log(event)
+  var buttonClicked = event.target
+  fetch("https://owen-wilson-wow-api.onrender.com/wows/random")
+  .then(function (response) {
+    return response.json()
+  })
+  .then(function (data) {
     console.log(data)
+    var wowAudio = data[0].audio
+    console.log(wowAudio)
+    playAudio(wowAudio)
+
+  if (buttonClicked.textContent === data[index].correctAnswer) {
+    console.log("correct")
+    //move owen one space forward 
+  } else {
+    console.log("incorrect")
+    //move owen one space back
+  }
+  index++
+
+  if (index < data.length) {
+    displayGameContainer(data, index)
+  } else {
+    //call finished game function here 
+    console.log("end game")
+  }
+  console.log(event)
+  console.log(data)
+})
 }
