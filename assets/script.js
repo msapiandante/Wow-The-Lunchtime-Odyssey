@@ -13,8 +13,8 @@ var gamePage = document.getElementById("game-page-container")
 //Function called to get game questions from trivia API
 function getGameQuestions(category) {
   //start page should get set to display none here?
-  startPage.setAttribute("style", "display: none")
-  gamePage.setAttribute("style", "display: block")
+  // startPage.setAttribute("style", "display: none")
+  // gamePage.setAttribute("style", "display: block")
 
 
   var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=15"
@@ -169,9 +169,10 @@ function moveOwen(event, triviaData) {
   function gameOver() {
     //set game container to display none 
     //set game done container to display to show
-    gamePage.setAttribute("style", "display: none")
-    gameDonePage.setAttribute("style", "display: block")
-
+  startPage.setAttribute("style","display:none")
+    
+    // gamePage.setAttribute("style", "display: none")
+    // gameDonePage.setAttribute("style", "display: block")
 
     var score = index
 

@@ -78,6 +78,7 @@ form{
     color:#ffe08a;
     font-family: 'Press Start 2P', cursive;
 }
+
 #carousel{
     text-align: center;
     font-size: 20px;
@@ -100,7 +101,6 @@ form{
     height:600px;
     width:600px;
 
-
 }
 #owen-heads{
     position: absolute;
@@ -111,8 +111,6 @@ form{
     position: absolute;
     top:45px;
     margin-left:-90px;
-
-    
 
 }
 
@@ -143,10 +141,6 @@ form{
     color:#ffe08a;
     font-family: 'Press Start 2P', cursive;
 
-}
-
-#game-page-container {
-    display: none;
 }
 
 #game-done-container {
