@@ -123,7 +123,6 @@ function moveOwen(event, triviaData) {
 
     var buttonClicked = event.target
     
-
     fetch("https://owen-wilson-wow-api.onrender.com/wows/random")
       .then(function (response) {
         return response.json()
@@ -140,6 +139,7 @@ function moveOwen(event, triviaData) {
           owenPosition += 5
           owenHead.setAttribute("style", `bottom: ${owenPosition}rem; height:140px; width:210px; z-index: 1`)
           console.log(owenPosition)
+          
         } else {
           console.log("incorrect")
           if (owenPosition >= 5) {
