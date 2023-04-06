@@ -18,7 +18,7 @@ function getGameQuestions(category) {
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (data) {
-            displayGameContainer(data, index)
+            displayGameContainer(data)
             console.log(data)
           })
         } else {
@@ -54,8 +54,11 @@ function shuffleArray(array) {
 }
 
 //Function to display game questions and game board 
-function displayGameContainer(data, index) {
-    //game page should get shown here?
+function displayGameContainer(data) {
+    //game page should get shown here
+    //start page gets display none
+
+    console.log(index)
 
   answerArr = []
   answerArr = answerArr.concat(data[index].incorrectAnswers)
@@ -72,40 +75,37 @@ function displayGameContainer(data, index) {
     choiceFour.textContent = randomChoices[3]
   }
 
-  //TODO: put owen and road on the page here
-
   choiceOne.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
   choiceTwo.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
   choiceThree.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
   choiceFour.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
 }
 
-var owenHead = getElementById("owen-heads")
+// var owenHead = getElementById("owen-heads")
 
 function moveOwen(event, data) {
+  
+  event.stopImmediatePropagation()
+
     var buttonClicked = event.target
     var owenPosition = 0
 
     if (buttonClicked.textContent === data[index].correctAnswer) {
         console.log("correct")
         owenPosition += 110
-        owenHead.setAttribute("style", "bottom: " + owenPosition + "px")
+        // owenHead.setAttribute("style", "bottom: " + owenPosition + "px")
     } else {
         console.log("incorrect")
         //move owen one space back
@@ -116,7 +116,7 @@ function moveOwen(event, data) {
     index++
 
     if (index < data.length || owenPosition < 500){
-        displayGameContainer(data, index)
+        displayGameContainer(data)
     } else {
         //call finished game function here 
         gameOver()
