@@ -15,6 +15,8 @@ var initialInput = document.getElementById("initials")
 var scoreList = document.getElementById("scores-list")
 var playAgain = document.getElementById("replay")
 var gameDonePage = document.getElementById("game-done-container")
+var triviaBoard = document.getElementById("trivia-board")
+var rightAnswer = document.getElementById("right-answer")
 
 var owenPosition = 0
 var index = 0
@@ -148,6 +150,8 @@ function moveOwen(event, triviaData) {
           }
         }
 
+        rightAnswer.textContent = triviaData[index].correctAnswer
+
         index++
         console.log(index)
 
@@ -162,6 +166,11 @@ function moveOwen(event, triviaData) {
 
   //Function to show final score 
   function gameOver() {
+
+    gameDonePage.setAttribute("style", "display: block")
+    startPage.setAttribute("style", "display:none")
+    gamePage.setAttribute("style", "display:none")
+    triviaBoard.setAttribute("style", "display:none")
 
     var score = index
 

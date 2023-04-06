@@ -113,7 +113,11 @@ form{
     margin-left:-90px;
 
 }
-#final-score{
+#right-answer {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+#final-score {
     text-align: center;
     font-family: 'Press Start 2P', cursive;
 }
@@ -146,4 +150,7 @@ form{
 
 }
 
+#game-done-container {
+    display: none;
+}
 
