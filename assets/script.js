@@ -8,12 +8,16 @@ categoryForm.addEventListener("submit", function (event) {
   var selectedCategory = dropdown.value
   getGameQuestions(selectedCategory)
 })
-
+var startPage = document.getElementById("start-page")
+var gamePage = document.getElementById("game-page-container")
 //Function called to get game questions from trivia API
 function getGameQuestions(category) {
   //start page should get set to display none here?
+  startPage.setAttribute("style", "display: none")
+  gamePage.setAttribute("style", "display: block")
 
-  var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=10"
+
+  var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=15"
 
   fetch(queryURL)
     .then(function (response) {
@@ -61,6 +65,13 @@ function displayGameContainer(data) {
 
   console.log(index)
 
+  if (index >= data.length || owenPosition >= 25) {
+    //call finished game function here 
+    gameOver()
+    console.log("end game")
+    return
+  } 
+
   answerArr = []
   answerArr = answerArr.concat(data[index].incorrectAnswers)
   answerArr.push(data[index].correctAnswer)
@@ -101,14 +112,15 @@ function playAudio(audio) {
   audioEl.play()
 }
 
-  // var owenHead = getElementById("owen-heads")
+var owenHead = document.getElementById("owen-heads")
+var owenPosition = 0
 
 function moveOwen(event, triviaData) {
-
+    event.preventDefault()
     event.stopImmediatePropagation()
 
     var buttonClicked = event.target
-    var owenPosition = 0
+    
 
     fetch("https://owen-wilson-wow-api.onrender.com/wows/random")
       .then(function (response) {
@@ -118,26 +130,29 @@ function moveOwen(event, triviaData) {
         console.log(data)
         var wowAudio = data[0].audio
         console.log(wowAudio)
-        playAudio(wowAudio)
+        
 
         if (buttonClicked.textContent === triviaData[index].correctAnswer) {
           console.log("correct")
-          owenPosition += 110
-          // owenHead.setAttribute("style", "bottom: " + owenPosition + "px")
+          playAudio(wowAudio)
+          owenPosition += 5
+          owenHead.setAttribute("style", `bottom: ${owenPosition}rem; height:140px; width:210px; z-index: 1`)
+          console.log(owenPosition)
         } else {
           console.log("incorrect")
-          //move owen one space back
+          if (owenPosition >= 5) {
+            owenPosition -= 5
+            owenHead.setAttribute("style", `bottom: ${owenPosition}rem; height:140px; width:210px; z-index: 1`)
+          }
         }
 
         index++
+        console.log(index)
 
-        if (index < triviaData.length || owenPosition < 500) {
+        if (index < triviaData.length || owenPosition < 25) {
           displayGameContainer(triviaData)
-        } else {
-          //call finished game function here 
-          gameOver()
-          console.log("end game")
         }
+ 
         console.log(event)
         console.log(triviaData)
       })
@@ -148,11 +163,15 @@ function moveOwen(event, triviaData) {
   var initialInput = document.getElementById("initials")
   var scoreList = document.getElementById("scores-list")
   var playAgain = document.getElementById("replay")
+  var gameDonePage = document.getElementById("game-done-container")
 
   //Function to show final score 
   function gameOver() {
     //set game container to display none 
     //set game done container to display to show
+    gamePage.setAttribute("style", "display: none")
+    gameDonePage.setAttribute("style", "display: block")
+
 
     var score = index
 
@@ -167,20 +186,21 @@ function moveOwen(event, triviaData) {
     event.preventDefault()
 
     var gamerScore = {
-      intials: initialInput.value.trim(),
+      initials: initialInput.value.trim(),
       score: index,
     }
 
     var storedScores = JSON.parse(localStorage.getItem("gamerScore")) || []
 
     storedScores.push(gamerScore)
+    console.log(storedScores)
 
-    for (vari = 0; i < storedScores.length; i++) {
+    for (var i = 0; i < storedScores.length; i++) {
       var li = document.createElement("li")
-      li.textContent = "Intials: " + storedScores[i].initials + "Score: " + storedScores[i].score
+      li.textContent = storedScores[i].initials + ": " + storedScores[i].score
       li.setAttribute("style", "list-type: none")
-
-      scoreList.appendChild("li")
+      console.log(li)
+      scoreList.appendChild(li)
     }
 
     localStorage.setItem("gamerScore", JSON.stringify(storedScores))
