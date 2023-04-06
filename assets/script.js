@@ -96,12 +96,16 @@ function displayGameContainer(data, index) {
 
 }
 
+var owenHead = getElementById("owen-heads")
+
 function moveOwen(event, data) {
     var buttonClicked = event.target
+    var owenPosition = 0
 
     if (buttonClicked.textContent === data[index].correctAnswer) {
         console.log("correct")
-        //move owen one space forward 
+        owenPosition += 110
+        owenHead.setAttribute("style", "bottom: " + owenPosition + "px")
     } else {
         console.log("incorrect")
         //move owen one space back
@@ -111,7 +115,7 @@ function moveOwen(event, data) {
 
     index++
 
-    if (index < data.length || owen hasnt reached burger){
+    if (index < data.length || owenPosition < 500){
         displayGameContainer(data, index)
     } else {
         //call finished game function here 
