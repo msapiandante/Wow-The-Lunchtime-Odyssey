@@ -1,21 +1,32 @@
 var categoryForm = document.getElementById("user-category")
-
 var dropdown = document.getElementById("categories")
 var audioEl = document.getElementById("audio")
+var startPage = document.getElementById("start-page")
+var gamePage = document.getElementById("game-page-container")
+var triviaQuestion = document.getElementById("question")
+var choiceOne = document.getElementById("choice-one")
+var choiceTwo = document.getElementById("choice-two")
+var choiceThree = document.getElementById("choice-three")
+var choiceFour = document.getElementById("choice-four")
+var owenHead = document.getElementById("owen-heads")
+var finalScore = document.getElementById("final-score")
+var submitButton = document.getElementById("submit")
+var initialInput = document.getElementById("initials")
+var scoreList = document.getElementById("scores-list")
+var playAgain = document.getElementById("replay")
+var gameDonePage = document.getElementById("game-done-container")
+
+var owenPosition = 0
+var index = 0
 
 categoryForm.addEventListener("submit", function (event) {
   event.preventDefault()
   var selectedCategory = dropdown.value
   getGameQuestions(selectedCategory)
 })
-var startPage = document.getElementById("start-page")
-var gamePage = document.getElementById("game-page-container")
+
 //Function called to get game questions from trivia API
 function getGameQuestions(category) {
-  //start page should get set to display none here?
-  // startPage.setAttribute("style", "display: none")
-  // gamePage.setAttribute("style", "display: block")
-
 
   var queryURL = "https://the-trivia-api.com/api/questions?categories=" + category + "&limit=15"
 
@@ -35,13 +46,6 @@ function getGameQuestions(category) {
     })
 
 }
-
-var index = 0
-var triviaQuestion = document.getElementById("question")
-var choiceOne = document.getElementById("choice-one")
-var choiceTwo = document.getElementById("choice-two")
-var choiceThree = document.getElementById("choice-three")
-var choiceFour = document.getElementById("choice-four")
 
 //https://www.geeksforgeeks.org/how-to-shuffle-an-array-using-javascript/
 function shuffleArray(array) {
@@ -112,16 +116,13 @@ function playAudio(audio) {
   audioEl.play()
 }
 
-var owenHead = document.getElementById("owen-heads")
-var owenPosition = 0
-
+//Function to compare right answers, move Owen based on answer, and play audio for right answer
 function moveOwen(event, triviaData) {
     event.preventDefault()
     event.stopImmediatePropagation()
 
     var buttonClicked = event.target
     
-
     fetch("https://owen-wilson-wow-api.onrender.com/wows/random")
       .then(function (response) {
         return response.json()
@@ -138,6 +139,7 @@ function moveOwen(event, triviaData) {
           owenPosition += 5
           owenHead.setAttribute("style", `bottom: ${owenPosition}rem; height:140px; width:210px; z-index: 1`)
           console.log(owenPosition)
+          
         } else {
           console.log("incorrect")
           if (owenPosition >= 5) {
@@ -158,21 +160,8 @@ function moveOwen(event, triviaData) {
       })
   }
 
-  var finalScore = document.getElementById("final-score")
-  var submitButton = document.getElementById("submit")
-  var initialInput = document.getElementById("initials")
-  var scoreList = document.getElementById("scores-list")
-  var playAgain = document.getElementById("replay")
-  var gameDonePage = document.getElementById("game-done-container")
-
   //Function to show final score 
   function gameOver() {
-    //set game container to display none 
-    //set game done container to display to show
-  startPage.setAttribute("style","display:none")
-    
-    // gamePage.setAttribute("style", "display: none")
-    // gameDonePage.setAttribute("style", "display: block")
 
     var score = index
 
