@@ -19,7 +19,7 @@ function getGameQuestions(category) {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          displayGameContainer(data, index)
+          displayGameContainer(data)
           console.log(data)
         })
       } else {
@@ -55,8 +55,11 @@ function shuffleArray(array) {
 }
 
 //Function to display game questions and game board 
-function displayGameContainer(data, index) {
-  //game page should get shown here?
+function displayGameContainer(data) {
+  //game page should get shown here
+  //start page gets display none
+
+  console.log(index)
 
   answerArr = []
   answerArr = answerArr.concat(data[index].incorrectAnswers)
@@ -73,65 +76,119 @@ function displayGameContainer(data, index) {
     choiceFour.textContent = randomChoices[3]
   }
 
-  //TODO: put owen and road on the page here
-
   choiceOne.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
   choiceTwo.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
   choiceThree.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
   choiceFour.addEventListener("click", function (event) {
-    console.log(data)
     moveOwen.call(this, event, data)
   }, false)
 
 }
+
 //play wow audio on click
 function playAudio(audio) {
   console.log(audio)
   audioEl.setAttribute("src", audio)
   audioEl.play()
-
-
 }
-function moveOwen(event, data) {
-  var buttonClicked = event.target
-  fetch("https://owen-wilson-wow-api.onrender.com/wows/random")
-  .then(function (response) {
-    return response.json()
+
+  // var owenHead = getElementById("owen-heads")
+
+function moveOwen(event, triviaData) {
+
+    event.stopImmediatePropagation()
+
+    var buttonClicked = event.target
+    var owenPosition = 0
+
+    fetch("https://owen-wilson-wow-api.onrender.com/wows/random")
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        console.log(data)
+        var wowAudio = data[0].audio
+        console.log(wowAudio)
+        playAudio(wowAudio)
+
+        if (buttonClicked.textContent === triviaData[index].correctAnswer) {
+          console.log("correct")
+          owenPosition += 110
+          // owenHead.setAttribute("style", "bottom: " + owenPosition + "px")
+        } else {
+          console.log("incorrect")
+          //move owen one space back
+        }
+
+        index++
+
+        if (index < triviaData.length || owenPosition < 500) {
+          displayGameContainer(triviaData)
+        } else {
+          //call finished game function here 
+          gameOver()
+          console.log("end game")
+        }
+        console.log(event)
+        console.log(triviaData)
+      })
+  }
+
+  var finalScore = document.getElementById("final-score")
+  var submitButton = document.getElementById("submit")
+  var initialInput = document.getElementById("initials")
+  var scoreList = document.getElementById("scores-list")
+  var playAgain = document.getElementById("replay")
+
+  //Function to show final score 
+  function gameOver() {
+    //set game container to display none 
+    //set game done container to display to show
+
+    var score = index
+
+    finalScore.textContent = "Your final score is: " + score
+
+    submitButton.addEventListener("click", scoreBoard)
+
+  }
+
+  //Function to display past scores and set scores to local storage
+  function scoreBoard(event) {
+    event.preventDefault()
+
+    var gamerScore = {
+      intials: initialInput.value.trim(),
+      score: index,
+    }
+
+    var storedScores = JSON.parse(localStorage.getItem("gamerScore")) || []
+
+    storedScores.push(gamerScore)
+
+    for (vari = 0; i < storedScores.length; i++) {
+      var li = document.createElement("li")
+      li.textContent = "Intials: " + storedScores[i].initials + "Score: " + storedScores[i].score
+      li.setAttribute("style", "list-type: none")
+
+      scoreList.appendChild("li")
+    }
+
+    localStorage.setItem("gamerScore", JSON.stringify(storedScores))
+  }
+
+  //Listens for clicks on play again button 
+  playAgain.addEventListener("click", function () {
+    location.reload()
   })
-  .then(function (data) {
-    console.log(data)
-    var wowAudio = data[0].audio
-    console.log(wowAudio)
-    playAudio(wowAudio)
 
-  if (buttonClicked.textContent === data[index].correctAnswer) {
-    console.log("correct")
-    //move owen one space forward 
-  } else {
-    console.log("incorrect")
-    //move owen one space back
-  }
-  index++
 
-  if (index < data.length) {
-    displayGameContainer(data, index)
-  } else {
-    //call finished game function here 
-    console.log("end game")
-  }
-  console.log(event)
-  console.log(data)
-})
-}
