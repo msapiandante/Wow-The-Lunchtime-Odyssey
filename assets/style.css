@@ -104,13 +104,12 @@ form{
 }
 #owen-heads{
     position: absolute;
-    bottom: 0px;
-    margin: 0;
-    margin-left: -102px;
+    bottom: 0rem;
+    margin-left: -106px;
 }
 #cheese-burger{
     position: absolute;
-    top:-20px;
+    top:45px;
     margin-left:-90px;
 
     
