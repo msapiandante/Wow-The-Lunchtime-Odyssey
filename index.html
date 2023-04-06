@@ -53,11 +53,13 @@
         <div id="game-board">
             <!-- owen head will move, so separate div container -->
             <div id="road">
-                <img src="./assets/images/owen.png"  id="owen-heads" alt="The face of god" style="height:140px;width:210px;z-index: 1;">
-                <img src="./assets/images/cheese-burger.png" id="cheese-burger" alt="gods burger" style="height:150px;width:175px;">
+                <img src="./assets/images/owen.png" id="owen-heads" alt="The face of god"
+                    style="height:140px;width:210px;z-index: 1;">
+                <img src="./assets/images/cheese-burger.png" id="cheese-burger" alt="gods burger"
+                    style="height:150px;width:175px;">
             </div>
-                <div id="cheeseburger"></div>
-            </div>
+            <div id="cheeseburger"></div>
+        </div>
     </div>
 
     <div id="trivia-board" class="card">
@@ -69,34 +71,36 @@
             <button class="button is-rounded is-size-5" id="choice-two">.....</button>
             <button class="button is-rounded is-size-5" id="choice-three">.....</button>
             <button class="button is-rounded is-size-5" id="choice-four">.....</button>
+            <p id="right-answer"></p>
         </div>
+    </div>
 
-    <!-- This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/  -->
-    <section id="game-done-container" class="box">
-        <h1 class="go-memo">Game Over!</h1>
-        <br>
-        <h2 id="final-score"></h2>
-        <br>
-        <form>
-            <div id="player-initials">
-                <label>Player Initials</label>
-                <input type="text" name="initials" id="initials" placeholder="" />
-            </div>
+        <!-- This section of HTML will show the end of the game. It will display game over and have the player enter initials and display scores. Scores will be stored and retrieved from local storage.*/  -->
+        <section id="game-done-container" class="box">
+            <h1 class="go-memo">Game Over!</h1>
             <br>
-            <button class="button is-rounded" id="submit">Submit! </button>
-            <audio id="audio"></audio> 
-        </form>
-        <div id="score-board">
-            <h1>Scoreboard: </h1>
-            <ul id="scores-list"></ul>
+            <h2 id="final-score"></h2>
             <br>
-            <div>
-                <button class="button is-rounded" id="replay">Play Again? </button>
+            <form>
+                <div id="player-initials">
+                    <label>Player Initials</label>
+                    <input type="text" name="initials" id="initials" placeholder="" />
+                </div>
+                <br>
+                <button class="button is-rounded" id="submit">Submit! </button>
+                <audio id="audio"></audio>
+            </form>
+            <div id="score-board">
+                <h1>Scoreboard: </h1>
+                <ul id="scores-list"></ul>
+                <br>
+                <div>
+                    <button class="button is-rounded" id="replay">Play Again? </button>
+                </div>
             </div>
-        </div>
-    </section>
-    <script src="https://kit.fontawesome.com/4e9c0933eb.js" crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script>
+        </section>
+        <script src="https://kit.fontawesome.com/4e9c0933eb.js" crossorigin="anonymous"></script>
+        <script src="./assets/script.js"></script>
 </body>
 
 </html>
