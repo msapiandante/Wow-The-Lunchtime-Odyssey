@@ -16,11 +16,12 @@ To navigate the Odyssey, the user can click/select the game category and begin t
 
 [Program]()
 ## Credits
- https://owen-wilson-wow-api.onrender.com/
- https://the-trivia-api.com/docs/#getQuiz
- https://fontawesome.com/search?q=sandwich&o=r&m=free
- https://bulma.io/
+We utilized the  [owen wilson API] (https://owen-wilson-wow-api.onrender.com/) for this project.
+We utilized the  [trivia API] (https://the-trivia-api.com/docs/#getQuiz) for this project.
+We utilized [Font awesome] (https://fontawesome.com/search?q=sandwich&o=r&m=free) for this project.
+We utilized [ Bulma ] (https://bulma.io/) for this project.
  W3 Schools
+ 
  Leif and Fred
 
 ## License
