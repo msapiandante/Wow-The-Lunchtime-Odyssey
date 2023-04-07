@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the 1st project of team Elva Rothman, Melanie Sapiandante, and Andrew Dean for Penn Full Stack Web Development. Wow! Owen Wilson's Lunchtime Odyssey is a game adventure tied to some of the most interesting trivia on the internet. Get owen to his sandwich and have a blast!  goals were to display a locations date,weather,temperature,humidity, and windspeed. An icon to show they type of weather would also be displayed in addition to a five day forecast projecting the week for any given city. These features are meant to assist in checking ones local weather in the event of a planning adaptation.
+This is the 1st project of team Elva Rothman, Melanie Sapiandante, and Andrew Dean for Penn Full Stack Web Development. Wow! Owen Wilson's Lunchtime Odyssey is a game adventure tied to some of the most interesting trivia on the internet. Get owen to his sandwich and have a blast! 
 
 ## Installation
 
