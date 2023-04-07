@@ -25,4 +25,4 @@ To navigate the Odyssey, the user can click/select the game category and begin t
 
 ## License
 
-MIT License
+N/A
