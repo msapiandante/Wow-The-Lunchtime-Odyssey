@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the 1st project of team Elva Rothman, Melanie Sapiandante, and Andrew Dean for Penn Full Stack Web Development. Wow! Owen Wilson's Lunchtime Odyssey is a game adventure tied to some of the most interesting trivia on the internet. Get owen to his sandwich and have a blast!  goals were to display a locations date,weather,temperature,humidity, and windspeed. An icon to show they type of weather would also be displayed in addition to a five day forecast projecting the week for any given city. These features are meant to assist in checking ones local weather in the event of a planning adaptation.
+This is the 1st project of team Elva Rothman, Melanie Sapiandante, and Andrew Dean for Penn Full Stack Web Development. Wow! Owen Wilson's Lunchtime Odyssey is a game adventure tied to some of the most interesting trivia on the internet. Get owen to his sandwich and have a blast! 
 
 ## Installation
 
@@ -16,11 +16,12 @@ To navigate the Odyssey, the user can click/select the game category and begin t
 
 [Program]()
 ## Credits
- https://owen-wilson-wow-api.onrender.com/
- https://the-trivia-api.com/docs/#getQuiz
- https://fontawesome.com/search?q=sandwich&o=r&m=free
- https://bulma.io/
+We utilized the  [owen wilson API] (https://owen-wilson-wow-api.onrender.com/) for this project.
+We utilized the  [trivia API] (https://the-trivia-api.com/docs/#getQuiz) for this project.
+We utilized [Font awesome] (https://fontawesome.com/search?q=sandwich&o=r&m=free) for this project.
+We utilized [ Bulma ] (https://bulma.io/) for this project.
  W3 Schools
+ 
  Leif and Fred
 
 ## License
