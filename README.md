@@ -9,7 +9,7 @@ This is the 1st project of team Elva Rothman, Melanie Sapiandante, and Andrew De
 
 To navigate the Odyssey, the user can click/select the game category and begin the game. for each correct trivia question answered Owen moves up, closer to his prize, eachquestion you get wrong he moves back. Aim for the lowest score of 5!
 
-[This is the link to the deployed application](https://erothman1.github.io/Wow-The-Lunchtime-Odyssey/)
+[This is the link to the deployed application](https://msapiandante.github.io/Wow-The-Lunchtime-Odyssey/)
 
 ![screenshot of game](./assets/images/Wow-The-Lunchtime-Odyssey_index.html.png)
 
